@@ -4,6 +4,7 @@ import socket
 HOST = 'localhost'
 PORT = 10000
 
+
 def echo_server():
     """Echo Server 的 Server 端"""
 
@@ -25,6 +26,7 @@ def echo_server():
             conn.sendall(data)
         conn.close()
     s.close()
+
 
 if __name__ == '__main__':
     echo_server()

@@ -4,6 +4,7 @@ import socket
 HOST = 'localhost'
 PORT = 10000
 
+
 def echo_client():
     """Echo Server 的 Client端 """
 
@@ -14,10 +15,10 @@ def echo_client():
         # 接收用户输入数据并发送服务器
         data = input('input >')
 
-        #设定退出条件
+        # 设定退出条件
         if data == 'exit':
             break
-    
+
         # 发送数据到服务端
         s.sendall(data.encode())
 
@@ -27,8 +28,9 @@ def echo_client():
             break
         else:
             print(data.decode('utf-8'))
-    
+
     s.close()
+
 
 if __name__ == '__main__':
     echo_client()

@@ -18,13 +18,13 @@ path = Path(__file__)
 
 path_parent = path.resolve().parent
 # 建立新的目录
-html_path = path_parent.joinpath('html1')
+html_path = path_parent.joinpath('html')
 
 if not html_path.is_dir():
     Path.mkdir(html_path)
     # Path(html_path).mkdir(mode=0o777)
 
-page = html_path.joinpath('douban.html')
+page = html_path.joinpath('double.html')
 
 # 上下文管理
 try:
