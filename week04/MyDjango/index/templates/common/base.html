@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}主页{% endblock %}
+    </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="{% static 'common/js/bootstrap.min.js' %}"></script>
+    <script>
+        {% block js %}
+        {% endblock %}
+    </script>
+</body>
+</html>
