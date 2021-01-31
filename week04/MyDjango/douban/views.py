@@ -5,16 +5,34 @@ from fake_useragent import UserAgent
 from lxml import etree
 import re
 from .models import Movie, Comment
+from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    movie_info = Movie.objects.all()[:1]
-    id = movie_info[0].id
-    comments = Comment.objects.all()[:20]
+    movie_info = Movie.objects.all()[:10]
 
-    for comment in comments:
-        print(comment.comment_info)
-    return HttpResponse('index')
+    return render(request, 'douban/index.html', locals())
+
+
+# 电影热评
+def comment(request, **param):
+    movie_id = param['id']
+    movie = Movie.objects.get(id=movie_id)
+    list = Comment.objects.filter(movie_id=movie_id)
+    sort = 0
+    keyword = ''
+    try:
+        if request.GET['keyword']:
+            keyword = request.GET['keyword'].strip()
+            list = list.filter(content__icontains=keyword)
+        if int(request.GET['sort']) == 1:
+            sort = 1
+            list = list.filter(star__gte=30)
+    except (KeyError):
+        num = list.count()
+        return render(request, 'douban/comment.html', locals())
+    num = list.count()
+    return render(request, 'douban/comment.html', locals())
 
 def scrapy(request):
     ua = UserAgent(verify_ssl=False)

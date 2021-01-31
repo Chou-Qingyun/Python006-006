@@ -1,0 +1,51 @@
+{% extends 'douban/base.html' %}
+{% block title %}电影列表{% endblock %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'douban/css/index.css' %}">
+{% endblock %}
+{% block body %}
+{% load custom_filters %}
+<div class="container">
+    <div class="row">
+        <div class="header">
+            <div class="logo-text">
+                <a href="">豆瓣电影</a>
+            </div>
+            <div class="search-form col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="搜索电影...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <ol class="breadcrumb">
+                <li><span class="playing">正在热映</span></li>
+                <li><span class="all-playing">全部正在热映</span></li>
+                <li><span class="will-play active">即将上映</span></li>
+            </ol>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="movie-list">
+                    {% for movie in movie_info %}
+                    <a href="{% url 'comment' movie.id %}" target="_blank">
+                        <div class="movie-item">
+                            <div class="movie-cover">
+                                <img src="{{movie.cover}}" alt="">
+                            </div>
+                            <div class="movie-name">
+                                <span>{{movie.name | split_space }}</span>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

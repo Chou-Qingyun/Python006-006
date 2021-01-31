@@ -1,0 +1,64 @@
+.header {
+    margin: 0 auto;
+    height: 56px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header-nav .all-playing, .will-play {
+    color: #37a;
+}
+.movie-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.movie-list .movie-item .movie-cover{
+    height: 161px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.movie-cover img {
+    height: 100%;
+    width: auto;
+}
+.movie-name {
+    width: 100%;
+    text-align: center;
+}
+.comment-list {
+    margin-top: 20px;
+}
+.comment-list .account {
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+}
+.comment-list .stars {
+    display: inline-block;
+    width: 55px;
+    height: 11px;
+    margin: 0 3px 0 10px;
+    overflow: hidden;
+    background: url(../img/ic_rating_s.png) no-repeat;
+}
+.comment-list .stars.star-50 {
+    background-position: 0 0;
+}
+.comment-list .stars.star-40 {
+    background-position: 0 -22px;
+}
+.comment-list .stars.star-30 {
+    background-position: 0 -44px;
+}
+.comment-list .stars.star-20 {
+    background-position: 0 -66px;
+}
+.comment-list .stars.star-10 {
+    background-position: 0 -88px;
+}
+.comment-list .stars.star-00 {
+    background-position: 0 -110px;
+}
+

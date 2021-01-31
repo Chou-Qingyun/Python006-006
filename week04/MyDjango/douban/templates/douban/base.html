@@ -1,18 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>
-        {% block title %}主页{% endblock %}
+        {% block title %}豆瓣短评{% endblock %}
     </title>
-    {% load static %}
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
+    {% block style %}
+    {% endblock %}
 </head>
 <body>
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+{% block body %}
+{% endblock body %}
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="{% static 'common/js/bootstrap.min.js' %}"></script>
     <script>
